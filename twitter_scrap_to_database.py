@@ -24,8 +24,12 @@ for j in tweet_2:
     container2.append(j.text)
 
 # creating database object and connecting to it
-db = sql.connect('localhost', 'root', 'claudia', 'OweYorubas')
+db = sql.connect() # remember to connect the database as i had removed my own credentials due to security 
 cursor = db.cursor()
+
+# creating a database
+command = 'create database OweProverbs'
+cursor = db.cursor(command)
 
 # dropping the table if it has been existing before and recreating it 
 cursor.execute('drop table if exists proverbs')
